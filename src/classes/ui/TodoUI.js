@@ -22,7 +22,7 @@ export class TodoUI {
     }
 
     // rendering project todos
-    project.todos.forEach(todo => {
+    project.todos.forEach((todo) => {
       const todoEl = DOM.createElement("div", ["todo"]);
       todoEl.setAttribute("data-todo-id", todo.id);
 
@@ -111,7 +111,7 @@ export class TodoUI {
       DOM.appendChildren(todoEl, [todoExpandDialog]);
 
       // enable view button for each todo
-      todoEl.addEventListener("click", e => {
+      todoEl.addEventListener("click", (e) => {
         e.stopPropagation();
 
         // console.log('view todo ' + todo.title);
@@ -119,7 +119,7 @@ export class TodoUI {
       });
 
       // enable toggle button for each todo
-      toggleBtn.addEventListener("click", e => {
+      toggleBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         project.toggleTodo(todo.id);
 
@@ -127,7 +127,7 @@ export class TodoUI {
       });
 
       // enable delete todo button for each todo
-      deleteBtn.addEventListener("click", e => {
+      deleteBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         // console.log('triggered delete todo on ' + todo.title);
 
@@ -156,7 +156,7 @@ export class TodoUI {
     const titleGroup = DOM.createInput("todo-title", "Title: ", "text");
     const descGroup = DOM.createInput("todo-desc", "Description: ", "text");
     const dueDateGroup = DOM.createInput("todo-due", "Due Date: ", "date");
-    const dueTimeGroup = DOM.createInput("todo-due", "Due Date: ", "time");
+    const dueTimeGroup = DOM.createInput("todo-due", "Due Time: ", "time");
     const priorityGroup = DOM.createDropdown("todo-priority", "Priority: ", [
       { value: "", text: "Select" },
       { value: "Low", text: "Low" },
@@ -192,7 +192,7 @@ export class TodoUI {
     cancelButton.addEventListener("click", () => todoDialog.close());
 
     // enable submit new todo button for each todo
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       e.stopPropagation();
 
@@ -219,7 +219,7 @@ export class TodoUI {
     });
 
     // to close modal on clicking outside of it
-    todoDialog.addEventListener("click", e => {
+    todoDialog.addEventListener("click", (e) => {
       e.stopPropagation();
       const rect = todoDialog.getBoundingClientRect();
 
@@ -318,13 +318,13 @@ export class TodoUI {
     ]);
     DOM.appendChildren(todoExpandDialog, [todoDetails, cancelButton]);
 
-    cancelButton.addEventListener("click", e => {
+    cancelButton.addEventListener("click", (e) => {
       e.stopPropagation();
       todoExpandDialog.close();
     });
 
     // to close modal on clicking outside of it
-    todoExpandDialog.addEventListener("click", e => {
+    todoExpandDialog.addEventListener("click", (e) => {
       e.stopPropagation();
       const rect = todoExpandDialog.getBoundingClientRect();
 
